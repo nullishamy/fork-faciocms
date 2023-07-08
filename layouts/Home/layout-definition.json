@@ -1,0 +1,14 @@
+{
+    "name": "Home",
+    "version": "1.0.0",
+    "requirements": {
+        "faciocms": {
+            "version": {
+                "min": "3.0.0",
+                "max": "unset"
+            }
+        }
+    },
+    "body": "body.php",
+    "head": "head.php"
+}

@@ -1,0 +1,9 @@
+{
+    "database": {
+        "username": "root",
+        "password": "",
+        "hostname": "localhost",
+        "database": "cms"
+    },
+    "defaultInstalation": "versions/3.0.0/version.json"
+}

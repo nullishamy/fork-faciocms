@@ -1,0 +1,37 @@
+{
+    "identifies": {
+        "name": "ExamplePlugin",
+        "public_token": "3c78d663-a091-43f2-bc54-ce4fc0be33b7",
+        "~uuid": "#"
+    },
+    "versions": {
+        "plugin": "1.0.0",
+        "faciocms": {
+            "min": "3.0.0"
+        }
+    },
+    "source": ".lock/include.php",
+    "requirements": [
+        "database",
+        "database.query",
+        "database.close",
+        "view",
+        "view.include",
+        "component",
+        "component.include",
+        "adminpanel",
+        "adminpanel.ui",
+        "adminpanel.ui.modify",
+        "adminpanel.css",
+        "adminpanel.css.modify",
+        "api",
+        "api.route",
+        "api.router",
+        "client",
+        "client.response",
+        "client.response.modify",
+        "static",
+        "static.resource",
+        "static.resource.own"
+    ]
+}
