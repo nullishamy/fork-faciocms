@@ -66,7 +66,7 @@
 
             \FacioCMS\Error\ErrorHandler::Throw(
                 DATABASE_QUERY_ERROR,
-                ""
+                $query
             );
 
             return [];

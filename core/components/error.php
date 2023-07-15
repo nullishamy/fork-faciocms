@@ -33,11 +33,12 @@
                 color: rgb(252, 51, 51);
             }
 
-            h3 {
+            h3, h4 {
                 font-size: 36px;
                 color: #aaa;
                 margin-top: 16px;
             }
+            
 
             .app-logo {
                 margin-top: -192px;
@@ -50,6 +51,8 @@
             <img src="/faciocms.png" alt="" class="app-logo">
             <h1>FacioCMS Error</h1>
             <h3><?php echo $error; ?></h3>
+
+            <h4><?php echo $details; ?></h4>
         </div>
     </body>
 </html>
