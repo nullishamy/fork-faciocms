@@ -145,9 +145,13 @@
 
         <span class="thin-line"></span>
 
-        <div class="d-flex justify-content-end align-items-center mt-4">
+        <div class="d-flex justify-content-end align-items-center mt-4" v-if="view === '<?php $cms->PrintTranslate('Versions'); ?>'">
             <span class="text-success save-success-text" @click="info.settings.opt_cache.error = ''">{{ info.settings.opt_cache.error }}</span>
             <button class="cms-btn mb-0" @click="saveVersion"> <?php $cms->PrintTranslate('Save'); ?> <em class="fas fa-save"></em> </button>
+        </div>
+        <div class="d-flex justify-content-end align-items-center mt-4" v-else>
+            <span class="text-success save-success-text" @click="info.settings.opt_cache.error = ''">{{ info.settings.opt_cache.error }}</span>
+            <button class="cms-btn mb-0" @click="saveSettings"> <?php $cms->PrintTranslate('Save'); ?> <em class="fas fa-save"></em> </button>
         </div>
     </div>
 </div>  
