@@ -31,7 +31,7 @@
         <span class="thin-line"></span>
         <?php endif; ?>
 
-        <div class="detail">
+        <!-- SOON <div class="detail">
             <?php if(!$is_connected): ?>
                 <div class="cloud-connect-center d-flex flex-column align-items-center">
                     <em class="fas fa-exclamation-triangle mb-3 icon-xl blazing"></em>
@@ -42,7 +42,7 @@
             <?php endif; ?>
         </div>
 
-        <span class="thin-line"></span>
+        <span class="thin-line"></span> -->
 
         <div class="detail">
             <h5>Created at:</h5>

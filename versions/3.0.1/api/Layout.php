@@ -54,6 +54,9 @@
    
             $name = $data->name;
 
+            // Checking permissions
+            if(!$this->HasAtLeast("Admin")) return ["error" => true, "content-message" => "Insufficient permissions"];
+
             $this->RecursiveDelete("../layouts/$name");
 
             return [ "error" => false, "content-message" => "Successfully deleted layout!" ];

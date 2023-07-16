@@ -6,6 +6,7 @@
      * Controller for Settings
      */
     trait Settings {
+        // @role Admin
         public function HandleAPI_SettingsSave() {
             global $database;
             header('Content-Type: application/json');
@@ -13,6 +14,8 @@
             // Preparing data
             $body = file_get_contents('php://input');
             $data = json_decode($body);
+
+            if(!$this->HasAtLeast("Admin")) return ["error" => true, "content-message" => "Insufficient permissions"];
 
             if(!$data) return ["error" => true, "content-message" => "Bad Request"];
 
@@ -42,5 +45,22 @@
             }
 
             return [ "error" => false, "content-message" => "Successfully cleared cache!" ];
+        }
+
+        // @role Super Admin
+        public function HandleAPI_ChangeVersion() {
+            global $database;
+            header('Content-Type: application/json');
+
+            // Preparing data
+            $version = file_get_contents('php://input');
+            
+            // Permissions check
+            if(!$this->HasAtLeast("Super Admin")) return ["error" => true, "content-message" => "Insufficient permissions"];
+
+            $query = "UPDATE `fcms_coreconfig` SET `version`='$version'";
+            $database->Raw($query);
+
+            return ["error" => false, "content-message" => "Saved successfully!"];
         }
     }

@@ -118,8 +118,7 @@
                 <div class="form-group">
                     <label class="form-label" for="role"><?php $cms->PrintTranslate('Role'); ?></label>
                     <select value="Viewer" id="role" class="form-input" v-model="forms.auth.createUser.role"> 
-                        <option selected="selected" value="Viewer">Viewer</option>
-                        <option value="Moderator">Moderator</option>
+                        <option value="Moderator" selected>Moderator</option>
                         <option value="Admin">Admin</option>
                     </select>
                 </div>

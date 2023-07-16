@@ -52,8 +52,10 @@
             <div class="view-meta view" v-else-if="view === 'meta'">
                 <div class="top-flex top-right">
                     <div class="top-flex toggle-show-secret-meta-settings">
-                        <em class="help secret-icon fas fa-exclamation-triangle" title="<?php $cms->PrintTranslate('txt_11'); ?>"></em> <label class="form-label" for="show-secret-meta-settings"><?php $cms->PrintTranslate('txt_10'); ?></label> 
-                        <input class="checkbox" id="show-secret-meta-settings" type="checkbox" v-model="show_secret_meta_settings">
+                        <?php if($cms->HasAtLeast("Admin")): ?>
+                            <em class="help secret-icon fas fa-exclamation-triangle" title="<?php $cms->PrintTranslate('txt_11'); ?>"></em> <label class="form-label" for="show-secret-meta-settings"><?php $cms->PrintTranslate('txt_10'); ?></label> 
+                            <input class="checkbox" id="show-secret-meta-settings" type="checkbox" v-model="show_secret_meta_settings">
+                        <?php endif; ?>
                     </div>
 
                     <button class="cms-btn mb-0" @click="createMetaSetting(<?php echo $page["id"]; ?>)"> Add new <em class="fas fa-plus icon"></em></button>

@@ -34,3 +34,6 @@ First time when you will render your page (visit it) the number will be generate
 
 ## Auto updating
 This feature is under development.
+
+## Changing version (introduced in 3.0.1)
+Changing CMS version can be done inside *Settings* > *Versions*

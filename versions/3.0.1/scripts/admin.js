@@ -71,7 +71,8 @@ const app = createApp({
                     website_url: window.secureData?.website_url || "https://faciocms.com/",
                     theme_color: window.secureData?.theme_color || "#242b38",
                     secondary_color: window.secureData?.secondary_color || "#fc3333",
-                    supercaching: window.secureData?.super_caching || false
+                    supercaching: window.secureData?.super_caching || false,
+                    version: window.secureData?.version || '3.0.0'
                 }
             },
             view: '',

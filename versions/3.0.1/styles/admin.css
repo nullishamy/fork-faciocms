@@ -153,6 +153,9 @@
   border: 2px solid rgba(255, 255, 255, 0.1333333333);
   transition: 0.225s;
 }
+.cms-form .form-group select.form-input {
+  padding: 10px !important;
+}
 .cms-form .form-group .form-label {
   font-size: 20px;
 }
@@ -496,7 +499,7 @@ a[role=button] {
   color: #eee;
   background: rgb(16, 16, 17);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2666666667);
-  padding: 10px 15px;
+  padding: 10px 10px;
   margin: 0 4px;
   margin-bottom: 8px;
   border-radius: 3px;
@@ -610,7 +613,7 @@ a[role=button] {
   color: #eee;
   background: rgb(16, 16, 17);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2666666667);
-  padding: 10px 15px;
+  padding: 10px 10px;
   margin: 0 4px;
   margin-bottom: 8px;
   border-radius: 3px;

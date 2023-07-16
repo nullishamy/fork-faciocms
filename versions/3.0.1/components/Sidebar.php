@@ -19,29 +19,37 @@
                 </a>
             </li>
 
+            <?php if($cms->HasAtLeast("Admin")): ?>
             <li class="sidebar-nav-item">
                 <a class="sidebar-nav-link" href="/admin/users">
                     <em class="fas fa-users"></em> <span class="sidebar-nav-item__title"><?php $cms->PrintTranslate('Users'); ?></span>
                 </a>
             </li>
+            <?php endif; ?>
 
+            <?php if($cms->HasAtLeast("Moderator")): ?>
             <li class="sidebar-nav-item">
                 <a class="sidebar-nav-link" href="/admin/layouts">
                     <em class="fas fa-layer-group"></em> <span class="sidebar-nav-item__title"><?php $cms->PrintTranslate('Layouts'); ?></span>
                 </a>
             </li>
+            <?php endif; ?>
 
+            <?php if($cms->HasAtLeast("Super Admin")): ?>
             <li class="sidebar-nav-item">
                 <a class="sidebar-nav-link" href="/admin/plugins">
                     <em class="fas fa-plug"></em> <span class="sidebar-nav-item__title"><?php $cms->PrintTranslate('Plugins'); ?></span>
                 </a>
             </li>
+            <?php endif; ?>
 
+            <?php if($cms->HasAtLeast("Admin")): ?>
             <li class="sidebar-nav-item">
                 <a class="sidebar-nav-link" href="/admin/settings">
                     <em class="fas fa-cog"></em> <span class="sidebar-nav-item__title"><?php $cms->PrintTranslate('Settings'); ?></span>
                 </a>
             </li>
+            <?php endif; ?>
         </ul>
     </div>
 

@@ -75,6 +75,7 @@
     define("EN_SUPER_CACHING", 'Super Caching');
     define("EN_SIZE_OF_CACHE", 'Size of cache');
     define("EN_MIGRATEFROMCLOUD", 'Migrate from cloud');
+    define("EN_VERSIONS", 'Versions');
 
     // Long
     define('EN_TXT_1', 'Average FacioCMS request process time on your website');

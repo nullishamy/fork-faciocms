@@ -12,6 +12,9 @@
 
             header('Content-Type: application/json');
 
+            // Checking permissions
+            if(!$this->HasAtLeast("Admin")) return ["error" => true, "content-message" => "Insufficient permissions"];            
+
             // Preparing data
             $body = file_get_contents('php://input');
             $data = json_decode($body);
@@ -44,6 +47,9 @@
             global $database;
 
             header('Content-Type: application/json');
+
+            // Checking permissions
+            if(!$this->HasAtLeast("Admin")) return ["error" => true, "content-message" => "Insufficient permissions"];
 
             // Preparing data
             $body = file_get_contents('php://input');

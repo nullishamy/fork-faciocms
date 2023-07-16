@@ -20,6 +20,7 @@
     require_once('Settings.php');
     require_once('User.php');
     require_once('Gallery.php');
+    require_once('Permissions.php');
     require_once('PluginLoader.php');
     require_once('Faciocode.php');
 

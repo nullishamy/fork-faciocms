@@ -16,6 +16,7 @@
     use FacioCMS\Versions\v3\App\Source\User;
     use FacioCMS\Versions\v3\App\Source\Gallery;
     use FacioCMS\Versions\v3\App\Source\PluginLoader;
+    use FacioCMS\Versions\v3\App\Source\Permissions;
     use FacioCMS\Versions\v3\API\ApplicationProgrammingInterface;
 
     class FacioCMS_v3_App extends App {
@@ -34,6 +35,7 @@
         use User;
         use Gallery;
         use PluginLoader;
+        use Permissions;
 
         /**
          * CMS Version downloaded from `fcms_coreconfig` table
@@ -60,6 +62,10 @@
             // Headers
             $this->SetDefaultHeaders();
 
+            // Getting the user & Initializing it
+            $this->user = $this->GetUser();
+            $this->InitUserAtCMS();
+
             // Handling request
             $this->HandleRequestIfIsAPI();
 
@@ -68,10 +74,6 @@
 
             // Minifing
             if($this->IsProduction()) Minifier::Start($this);
-
-            // Getting the user & Initializing it
-            $this->user = $this->GetUser();
-            $this->InitUserAtCMS();
 
             // Initializing app
             $this->CheckIfIsInAdminPanel();

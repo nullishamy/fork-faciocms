@@ -2,13 +2,15 @@
     <summary class="page-content" style="padding-left: <?php echo $depth * 6; ?>px" title="<?php $cms->PrintTranslate('ClickToExpand'); ?>">
         <div class="page-top">
             <div class="page-left">
-                <a href="/admin/page/<?php echo \FacioCMS\Versions\v3\App\Source\encrypt_faciocode($page["id"]); ?>" class="page__title link"><?php echo $page["title"]; ?></a>
+                <a <?php if($cms->HasAtLeast("Moderator")): ?>href="/admin/page/<?php echo \FacioCMS\Versions\v3\App\Source\encrypt_faciocode($page["id"]); ?>"<?php endif; ?> class="page__title link"><?php echo $page["title"]; ?></a>
             </div>
             
             <div class="controls">
-                <button class="times-tool-btn" @click="deletePage(<?php echo $page["id"]; ?>)"><em class="fas fa-trash"></em></button>
-                <a role="button" href="/admin/page/<?php echo \FacioCMS\Versions\v3\App\Source\encrypt_faciocode($page["id"]); ?>" class="success-tool-btn"><em class="fas fa-pen"></em></a>    
-                <button class="success-tool-btn" @click="createPage(<?php echo $page["id"]; ?>)"><em class="fas fa-plus"></em></button>
+                <?php if($cms->HasAtLeast("Moderator")): ?>
+                    <button class="times-tool-btn" @click="deletePage(<?php echo $page["id"]; ?>)"><em class="fas fa-trash"></em></button>
+                    <a role="button" href="/admin/page/<?php echo \FacioCMS\Versions\v3\App\Source\encrypt_faciocode($page["id"]); ?>" class="success-tool-btn"><em class="fas fa-pen"></em></a>    
+                    <button class="success-tool-btn" @click="createPage(<?php echo $page["id"]; ?>)"><em class="fas fa-plus"></em></button>
+                <?php endif; ?>
 
                 <span class="page-icon"></span>
             </div>

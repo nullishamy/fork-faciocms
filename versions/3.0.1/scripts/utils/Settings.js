@@ -13,7 +13,7 @@ export default {
                 const contentMessage = res["content-message"]
                 this.info.settings.opt_cache.error = contentMessage
 
-                dynamicReload(true)
+                if(!res.error) dynamicReload(true)
 
                 setTimeout(() => {
                     this.info.settings.opt_cache.error = ''
@@ -31,5 +31,24 @@ export default {
         })
 
         return ""
+    },
+    saveVersion() {
+        const version = this.settings.opt_cache.version
+
+        fetch(`/api/change-version`, {
+            method: 'POST',
+            body: version
+        })
+            .then(res => res.json())
+            .then(res => {
+                const contentMessage = res["content-message"]
+                this.info.settings.opt_cache.error = contentMessage
+
+                if(!res.error) dynamicReload(true)
+
+                setTimeout(() => {
+                    this.info.settings.opt_cache.error = ''
+                }, 10 * 1000)
+            })
     }
 }

@@ -31,7 +31,9 @@
 
             <div class="buttons">
                 <?php /*<a href="/admin/layout/<?php echo $layout->name ?>" class="cms-btn" role="button"><em class="fas fa-pen"></em></a> */ ?>
-                <button @click="deleteLayout('<?php echo $layout->name; ?>')" class="cms-btn" role="button"><em class="fas fa-trash no"></em></button>
+                <?php if($cms->HasAtLeast("Admin")): ?>
+                    <button @click="deleteLayout('<?php echo $layout->name; ?>')" class="cms-btn" role="button"><em class="fas fa-trash no"></em></button>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>

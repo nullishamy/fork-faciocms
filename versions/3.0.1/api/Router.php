@@ -78,6 +78,9 @@
                 case "clear-cache": {
                     $res = $this->HandleAPI_ClearCache();
                 } break;
+                case "change-version": {
+                    $res = $this->HandleAPI_ChangeVersion();
+                } break;
             }
 
             echo gettype($res) == 'array' ? json_encode($res) : $res;

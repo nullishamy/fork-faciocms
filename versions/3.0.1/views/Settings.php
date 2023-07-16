@@ -6,6 +6,10 @@
 
         $size_of_cache += filesize("../cache/pages/$page");
     }
+
+    // Versions
+    $versions = json_decode(file_get_contents("../versions/versions.json"));
+    $current_version = $cms->generator_version;
 ?>
 
 <script>window.onScriptLoaded(() => window.setDisplayView('General'))</script>
@@ -18,6 +22,7 @@
         theme_color: "<?php echo $cms->GetSetting('theme_color')->value; ?>",
         secondary_color: "<?php echo $cms->GetSetting('secondary_color')->value; ?>",
         super_caching: <?php echo $cms->GetSetting('supercaching')->value; ?>,
+        version: "<?php echo $current_version; ?>"
     }
 </script>
 
@@ -25,7 +30,7 @@
 <div class="settings-panel mt-4">
     <ViewSelector
         @view-select="(view) => setView(view)"
-        :views="['<?php $cms->PrintTranslate('General'); ?>', '<?php $cms->PrintTranslate('OptimalizationAndCaching'); ?>', '<?php $cms->PrintTranslate('Updates'); ?>']"
+        :views="['<?php $cms->PrintTranslate('General'); ?>', '<?php $cms->PrintTranslate('OptimalizationAndCaching'); ?>', '<?php $cms->PrintTranslate('Updates'); ?>', '<?php $cms->PrintTranslate('Versions'); ?>']"
         :view="view"
     ></ViewSelector>
 
@@ -113,11 +118,36 @@
             </div>
         </div>
 
+        <div class="settings-view view" v-else-if="view === '<?php $cms->PrintTranslate('Versions'); ?>'">
+            <div class="setting-group mt-3">
+                <h3 class="setting-group__title"><label for="version-select"><?php $cms->PrintTranslate('Versions'); ?></label></h3>
+
+                <div class="form">
+                    <select class="editor-form__input form-input" id="version-select" name="version" v-model="settings.opt_cache.version">
+                        <?php foreach($versions as $version): ?>
+                            
+                            <option 
+                                value="<?php echo $version->version; ?>" 
+                                <?php if($current_version == $version->version): ?> selected<?php endif; ?>
+                            ><?php echo $version->version; ?></option>
+                            
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-end align-items-center mt-4">
+                    <button class="cms-btn">Install new version</button>
+                </div>
+
+                <span class="warning mt-3 mt3"><strong class="">Warning: </strong> installing versions soon</span>
+            </div>
+        </div>
+
         <span class="thin-line"></span>
 
         <div class="d-flex justify-content-end align-items-center mt-4">
             <span class="text-success save-success-text" @click="info.settings.opt_cache.error = ''">{{ info.settings.opt_cache.error }}</span>
-            <button class="cms-btn mb-0" @click="saveSettings"> <?php $cms->PrintTranslate('Save'); ?> <em class="fas fa-save"></em> </button>
+            <button class="cms-btn mb-0" @click="saveVersion"> <?php $cms->PrintTranslate('Save'); ?> <em class="fas fa-save"></em> </button>
         </div>
     </div>
 </div>  
