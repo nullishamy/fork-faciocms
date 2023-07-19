@@ -8,7 +8,7 @@
     <h1 class="title"><?php echo $page->GetTitle(); ?></h1>
     <h3 class="subtitle mb-4 mt-3 text-secondary"><?php echo $page->GetSubtitle(); ?></h3>
 
-    <?php echo $page->GetSetting("Active"); ?>
+    <?php /* echo $page->GetSetting("Active"); */ ?>
 
     <hr>
     <div class="lead"><?php echo $page->GetContent(); ?></div>

@@ -1,8 +1,12 @@
 {
+    "user_creds": {
+        "username": "admin",
+        "password": "64b3e741cc584"
+    },
     "database": {
         "username": "root",
-        "password": "",
-        "hostname": "localhost",
+        "password": "password",
+        "hostname": "localhost:3306",
         "database": "cms"
     },
     "defaultInstalation": "versions/3.0.1/version.json"

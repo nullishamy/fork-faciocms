@@ -67,7 +67,7 @@
             $this->InstallCheck();
 
             // Minifing
-            if($this->IsProduction()) Minifier::Start($this);
+            /* if($this->IsProduction()) */ Minifier::Start($this);
 
             // Getting the user & Initializing it
             $this->user = $this->GetUser();
